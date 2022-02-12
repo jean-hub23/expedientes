@@ -126,28 +126,28 @@ class DashboardView(LoginRequiredMixin, TemplateView):
         return context
 
 
-# Calendario
-class CalendarView(LoginRequiredMixin, View):
-    def get(self, request):
+# Error 404
+class Error404View(View):
+    def get(self,request):
         greeting = {}
-        greeting['title'] = "Calendar"
-        greeting['pageview'] = "Nazox" #Para cambiar
-        return render(request, 'menu/calendar.html', greeting)
+        greeting['title'] = "Error 404"
+        greeting['pageview'] = "Utility"
+        return render(request,'pages/utility/pages-404.html',greeting)
 
 
-# chat
-class ChatView(LoginRequiredMixin, View):
-    def get(self, request):
+# Error 403
+class Error403View(View):
+    def get(self,request):
         greeting = {}
-        greeting['title'] = "Chat"
-        greeting['pageview'] = "Nazox" #Para cambiar
-        return render(request, 'menu/apps-chat.html', greeting)
+        greeting['title'] = "Error 403"
+        greeting['pageview'] = "Utility"
+        return render(request, 'pages/utility/pages-403.html',greeting)
 
 
-# kanban board
-class KanbanBoardView(LoginRequiredMixin, View):
-    def get(self, request):
+# Error 500
+class Error500View(View):
+    def get(self,request):
         greeting = {}
-        greeting['title'] = "Kanban Board"
-        greeting['pageview'] = "Nazox" #Para cambiar
-        return render(request, 'menu/apps-kanban-board.html', greeting)
+        greeting['title'] = "Error 500"
+        greeting['pageview'] = "Utility"
+        return render(request,'pages/utility/pages-500.html',greeting)
