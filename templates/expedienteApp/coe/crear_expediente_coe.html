@@ -1,0 +1,37 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="m-0 row justify-content-center ">
+        <div class="col-xl-8">
+            <div class="card ">
+                <div class="card-body">
+                    <h4 class="card-title">Registro COE</h4>
+                    <p class="card-title-desc">Por favor ingrese un nuevo registro de un expediente ya girado con Carta de Orden Electronico.</p>
+                    <form id="form_creacion_coe" class="custom-validation" action="{% url 'expediente:crear_coe' %}" method="post">
+                        {% csrf_token %}
+                        <div class="mb-0">
+                            <div class="errores">
+
+                            </div>
+                            {{ form.as_p }}
+                            <div>
+                                <button id="boton_creacion" onclick="crear_coe();" type="submit" class="btn btn-primary waves-effect waves-light me-1">
+                                    Guardar
+                                </button>
+                                <a href="{% url 'dashboard' %}" class="btn btn-secondary waves-effect">
+                                    Cancelar
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+ <!-- end col -->
+{% endblock content %}
+
+{% block extra_javascript %}
+        <script src="{% static 'libs/parsleyjs/parsley.min.js' %}"></script>
+        <script src="{% static 'js/pages/form-validation.init.js' %}"></script>
+{% endblock extra_javascript %}

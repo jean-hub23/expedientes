@@ -1,0 +1,24 @@
+<div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+                Edicion del registro CCI: {{object}}
+                <button  type="button" class="btn-close" data-dismiss="modal" aria-label="Close" onclick="cerrar_modal_edicion()">&times</button>
+                <span aria-hidden="true" >&times;</span>
+            </button>
+        </div>
+        <form id="form_edicion_cci" action="{% url 'expediente:editar_cci' object.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="modal-body">
+                <div id="erroresEdicion">
+                </div>
+                {{ form.as_p }}
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" type="button" data-dismiss="modal" onclick="cerrar_modal_edicion()" >Cancelar</button>
+                <button id="boton_creacion" class="btn btn-primary" type="submit" onclick="editar_cci();" >Confirmar</button>
+            </div>
+        </form>
+
+    </div>
+
+</div>
